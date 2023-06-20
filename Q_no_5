@@ -1,0 +1,23 @@
+def reverseStr(s, k):
+    chars = list(s)
+    i = 0
+
+    while i < len(s):
+        start = i
+        end = min(i + k - 1, len(s) - 1)
+
+        left = start
+        right = end
+        while left < right:
+            chars[left], chars[right] = chars[right], chars[left]
+            left += 1
+            right -= 1
+
+        i += 2 * k
+
+    return ''.join(chars)
+
+
+s = "abcdefg"
+k = 2
+print(reverseStr(s, k))
